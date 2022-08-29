@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # 3rd party libraries
     'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'middledjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sevillaDB',
+        'NAME': 'learning',
         'USER': 'postgres',
         'PASSWORD': '1560',
         'HOST': 'localhost',
