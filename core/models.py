@@ -8,8 +8,8 @@ class League(models.Model):
 
 class Team(models.Model):
     name = models.CharField(max_length=255)
-    founded = models.DateField()
-    league = models.ForeignKey(League, on_delete=models.CASCADE)
+    founded = models.DateField(blank=True, null=True)
+    league = models.ForeignKey(League, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
