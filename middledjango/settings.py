@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'middledjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'learning',
+        'NAME': 'premier-league',
         'USER': 'postgres',
         'PASSWORD': '1560',
         'HOST': 'localhost',
