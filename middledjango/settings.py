@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 3rd party libraries
     'rest_framework',
     'django_extensions',
+    'django_template_maths',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,37 @@
 {% extends 'core/base.html' %}
+
 {% block content %}
-    <fieldset>
-        <legend>Premier League</legend>
-        
-    </fieldset>
-{% endblock con %}
+    <div class="table">
+        <h1>Standings</h1>
+        <table>
+            <tr class="col">
+                <th></th>
+                <th>Team</th>
+                <th>Games</th>
+                <th>Win</th>
+                <th>Draw</th>
+                <th>Loss</th>
+                <th>Scored</th>
+                <th>Conseded</th>
+                <th>Point</th>
+                <th>Average</th>
+            </tr>
+            
+            {% for team in teams %}
+            <tr class="col">
+                <td></td>
+                <td> {{ team["name"] }} </td>
+                <td> {{ team["games"] }} </td>
+                <td> {{team["win"]}} </td>
+                <td> {{team["draw"] }} </td>
+                <td> {{team["loss"]}} </td>
+                <td> {{team["scored"]}} </td>
+                <td> {{ team["conceded"] }} </td>
+                <td> {{ team["points"]}} </td>
+                <td> {{ team["average"]}} </td>
+            </tr> 
+            {% endfor %}
+                
+        </table>
+    </div>
+{% endblock content %}
