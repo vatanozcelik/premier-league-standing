@@ -5,6 +5,6 @@ from django.urls import path
 
 urlpatterns = [
     path('', home, name='home'),
-]
+] 
 # + static(settings.STATIC_URL,
 #     document_root=settings.STATIC_ROOT)
