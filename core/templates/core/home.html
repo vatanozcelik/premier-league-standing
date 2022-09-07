@@ -1,37 +1,42 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+
     <div class="table">
-        <h1>Standings</h1>
-        <table>
-            <tr class="col">
-                <th></th>
-                <th>Team</th>
-                <th>Games</th>
-                <th>Win</th>
-                <th>Draw</th>
-                <th>Loss</th>
-                <th>Scored</th>
-                <th>Conseded</th>
-                <th>Point</th>
-                <th>Average</th>
-            </tr>
-            
-            {% for team in teams %}
-            <tr class="col">
-                <td></td>
-                <td> {{ team["name"] }} </td>
-                <td> {{ team["games"] }} </td>
-                <td> {{team["win"]}} </td>
-                <td> {{team["draw"] }} </td>
-                <td> {{team["loss"]}} </td>
-                <td> {{team["scored"]}} </td>
-                <td> {{ team["conceded"] }} </td>
-                <td> {{ team["points"]}} </td>
-                <td> {{ team["average"]}} </td>
-            </tr> 
-            {% endfor %}
-                
+        <h1 class="text-center">Standings</h1>
+        <table class="center">
+            <thead>
+                <tr class="col">
+                    <th></th>
+                    <th>Team</th>
+                    <th>Games</th>
+                    <th>Win</th>
+                    <th>Draw</th>
+                    <th>Loss</th>
+                    <th>Scored</th>
+                    <th>Conseded</th>
+                    <th>Point</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr class="col">
+                    <td>{{ forloop.counter }}</td>
+                    <td><img src="{{ team.image.url }}" alt=""></td>
+                    <td> {{ team.name }} </td>
+                    <td> {{ team.games }} </td>
+                    <td> {{ team.win }} </td>
+                    <td> {{ team.draw }} </td>
+                    <td> {{ team.loss }} </td>
+                    <td> {{ team.scored }} </td>
+                    <td> {{ team.conceded }} </td>
+                    <td> {{ team.points }} </td>
+                    <td> {{ team.average }} </td>
+                </tr> 
+                {% endfor %}    
+            </tbody>
         </table>
     </div>
+
 {% endblock content %}

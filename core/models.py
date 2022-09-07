@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class League(models.Model):
     name = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
@@ -7,6 +8,7 @@ class League(models.Model):
 
 
 class Team(models.Model):
+    image = models.ImageField(upload_to="images/", blank=True, null=True)
     name = models.CharField(max_length=255)
     games = models.IntegerField(blank=True, null=True)
     win = models.IntegerField(blank=True, null=True)
