@@ -8,7 +8,7 @@ class League(models.Model):
 
 
 class Team(models.Model):
-    image = models.ImageField(upload_to="images/", blank=True, null=True)
+    image = models.ImageField(upload_to="images/", default='images/Wolves.png',  blank=True, null=True)
     name = models.CharField(max_length=255)
     games = models.IntegerField(blank=True, null=True)
     win = models.IntegerField(blank=True, null=True)
