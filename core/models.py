@@ -6,9 +6,13 @@ class League(models.Model):
     country = models.CharField(max_length=255)
     founded = models.DateField()
 
+    def __str__(self):
+        return self.name
+
 
 class Team(models.Model):
-    image = models.ImageField(upload_to="images/", default='images/Wolves.png',  blank=True, null=True)
+    image = models.ImageField(
+        upload_to="images/", default='images/Wolves.png',  blank=True, null=True)
     name = models.CharField(max_length=255)
     games = models.IntegerField(blank=True, null=True)
     win = models.IntegerField(blank=True, null=True)
@@ -17,10 +21,12 @@ class Team(models.Model):
     scored = models.IntegerField(blank=True, null=True)
     conceded = models.IntegerField(blank=True, null=True)
     founded = models.DateField(blank=True, null=True)
-    league = models.ForeignKey(League, blank=True, null=True, on_delete=models.CASCADE)
+    league = models.ForeignKey(
+        League, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
 
 class Footballer(models.Model):
     name = models.CharField(max_length=255)
@@ -30,5 +36,3 @@ class Footballer(models.Model):
 
     def __str__(self):
         return self.name
-
-
