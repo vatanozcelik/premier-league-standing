@@ -1,8 +1,17 @@
-from core.views import home
+from core.views import (
+    home,
+    League_1,
+    La_liga,
+    premeir_league,
+)
 from django.urls import path
 
 
 urlpatterns = [
     path('', home, name='home'),
-] 
+    path('la-liga-standing/', La_liga, name='la-liga'),
+    path('league-1-standing/', League_1, name='league-1'),
+    path('premier-league-standing/', premeir_league, name='premier-league')
 
+
+]
