@@ -16,7 +16,6 @@ class Team(models.Model):
     image = models.ImageField(
         upload_to="images/", default='images/Wolves.png',  blank=True, null=True)
     name = models.CharField(max_length=255)
-    games = models.IntegerField(blank=True, null=True)
     win = models.IntegerField(blank=True, null=True)
     draw = models.IntegerField(blank=True, null=True)
     loss = models.IntegerField(blank=True, null=True)
@@ -24,6 +23,7 @@ class Team(models.Model):
     conceded = models.IntegerField(blank=True, null=True)
     founded = models.DateField(blank=True, null=True)
 
+    games = models.IntegerField(blank=True, null=True)
     point = models.IntegerField(blank=True, null=True)
     average = models.IntegerField(blank=True, null=True)
 
@@ -31,9 +31,11 @@ class Team(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.point = self.games*3 + self.draw
+        self.games = self.win + self.draw + self.loss
+        self.point = self.win*3 + self.draw
         self.average = self.scored - self.conceded
         super(Team, self).save(*args, **kwargs)
+
 
 class Footballer(models.Model):
     name = models.CharField(max_length=255)

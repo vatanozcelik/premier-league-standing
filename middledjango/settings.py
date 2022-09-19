@@ -41,10 +41,12 @@ INSTALLED_APPS = [
 
     # apps
     'core.apps.CoreConfig',
+    'users.apps.UsersConfig',
 
     # 3rd party libraries
     'rest_framework',
     'django_extensions',
+    'crispy_forms',
 
 ]
 

@@ -7,17 +7,16 @@
         <table class="center">
             <thead>
                 <tr class="col">
-                    <th></th>
-                    <th></th>
-                    <th>Team</th>
-                    <th>Games</th>
-                    <th>Win</th>
-                    <th>Draw</th>
-                    <th>Loss</th>
-                    <th>Scored</th>
-                    <th>Conseded</th>
-                    <th>Point</th>
-                    <th>Average</th>
+                    <td></td>
+                    <td>Club</td>
+                    <td></td>
+                    <td>MP</td>
+                    <td>W</td>
+                    <td>D</td>
+                    <td>L</td>
+                    <td>GF</td>
+                    <td>GA</td>
+                    <td>Pts</td>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +25,7 @@
                 <tr class="col">
                     <td>{{ forloop.counter }}</td>
                     <td>
-                        <img src="{{ team.image.url }}" height="40" width="40" >
+                        <img class='img-responsive' src="{{ team.image.url }}" height="30" width="30" >
                     </td>
                     <td> {{ team.name }} </td>
                     <td> {{ team.games }} </td>
@@ -35,8 +34,7 @@
                     <td> {{ team.loss }} </td> 
                     <td> {{ team.scored }} </td>
                     <td> {{ team.conceded }} </td>
-                    <td> {{ team.point }} </td>
-                    <td> {{ team.average }} </td>
+                    <td><strong> {{ team.point }} </strong></td>
                 </tr> 
                 {% endfor %}    
             </tbody>
