@@ -4,8 +4,16 @@ from django.http import HttpResponse
 import pandas as pd
 import json
 
-from .models import League, Team
+from .models import League, Team, Footballer
 # Create your views here.
+
+
+def team_info(request):
+    footballers = Footballer.objects.all()
+    context = {
+        'footballers': footballers
+    }
+    return render(request, "core/team.html", context)
 
 
 def home(request):

@@ -27,7 +27,9 @@
                     <td>
                         <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" >
                     </td>
-                    <td> {{ team.name }} </td>
+                    <a href="{% url 'footballer' %}">
+                        <td> {{ team.name }} </td>
+                    </a>
                     <td> {{ team.games }} </td>
                     <td> {{ team.win }} </td>
                     <td> {{ team.draw }} </td>
@@ -35,6 +37,7 @@
                     <td> {{ team.scored }} </td>
                     <td> {{ team.conceded }} </td>
                     <td><strong> {{ team.point }} </strong></td>
+                
                 </tr> 
                 {% endfor %}    
             </tbody>

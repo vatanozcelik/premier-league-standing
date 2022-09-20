@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+    {% for footballer in footballers %}
+    <div class="container">
+        <h1 class="text-center">{{ footballer.name }}</h1>
+        <table class="table center table-responsive table-hover table-dark">
+            <thead>
+                <tr class="col">
+                    <td></td>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Old Club</td>
+                    <td>Currenct Team</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!---->
+                <tr class="col">
+                    <td>{{ forloop.counter }}</td>
+                    <td> {{ footballer.name }} </td>
+                    <td> {{ footballer.age }} </td>
+                    <td> {{ footballer.old_club }} </td>
+                    <td> {{ footballer.team }} </td>
+                    </tr> 
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}    
+
+{% endblock content %}
