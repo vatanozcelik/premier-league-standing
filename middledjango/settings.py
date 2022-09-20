@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'crispy_forms',
-
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +145,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+"""
+ when we load crispy_forms_tagsit loads bootstrap 2 by default
+ it is very old hence, installed and added crispy_forms and crispy_bootstrap5
+ to installed_apps and at to the very bottom crispy template pack is added too
+"""
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# redirect when logged in
+LOGIN_REDIRECT_URL = ''
+LOGIN_URL = 'login'
