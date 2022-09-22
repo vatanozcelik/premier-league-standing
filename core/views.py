@@ -44,7 +44,7 @@ def premeir_league(request):
 
 
 def La_liga(request):
-    la_liga = Team.objects.filter(league_id=2).order_by('-point', '-average')
+    la_liga = Team.objects.filter(league_id=3).order_by('-point', '-average')
     context = {
         'teams': la_liga
     }
@@ -52,7 +52,7 @@ def La_liga(request):
 
 
 def League_1(request):
-    league_1 = Team.objects.filter(league_id=3).order_by('-point', '-average')
+    league_1 = Team.objects.filter(league_id=2).order_by('-point', '-average')
     context = {
         'teams': league_1
     }
