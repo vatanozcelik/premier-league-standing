@@ -1,1 +1,1 @@
-web: gunicorn premier-league-standing:wsqi
+web: gunicorn premier-league-standing.wsgi
