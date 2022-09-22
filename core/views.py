@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import pandas as pd
 import json
+import requests
+
 
 from .models import League, Team, Footballer
 # Create your views here.
@@ -55,3 +57,22 @@ def League_1(request):
         'teams': league_1
     }
     return render(request, "core/league_1.html", context)
+
+
+# def fixtures(request):
+
+#     url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
+
+#     querystring = {"date": "2021-01-29"}
+
+#     headers = {
+#         "X-RapidAPI-Key": "0d09d428a7msh8463aa6522b80e2p16954bjsn57b81c2cdff4",
+#         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+#     }
+
+#     response = requests.request(
+#         "GET", url, headers=headers, params=querystring).json()
+
+#     print(type(response))
+
+#     return render(request, 'core/fixtures.html', {'response': response})

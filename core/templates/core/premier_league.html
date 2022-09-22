@@ -22,23 +22,20 @@
             <tbody>
                 <!---->
                 {% for team in teams %}
-                <tr class="col">
-                    <td>{{ forloop.counter }}</td>
-                    <td>
-                        <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" >
-                    </td>
-                    <a href="{% url 'footballer' %}">
+                    <tr data-href="{% url 'footballer' %}" class="col">
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" >
+                        </td>
                         <td> {{ team.name }} </td>
-                    </a>
-                    <td> {{ team.games }} </td>
-                    <td> {{ team.win }} </td>
-                    <td> {{ team.draw }} </td>
-                    <td> {{ team.loss }} </td> 
-                    <td> {{ team.scored }} </td>
-                    <td> {{ team.conceded }} </td>
-                    <td><strong> {{ team.point }} </strong></td>
-                
-                </tr> 
+                        <td> {{ team.games }} </td>
+                        <td> {{ team.win }} </td>
+                        <td> {{ team.draw }} </td>
+                        <td> {{ team.loss }} </td> 
+                        <td> {{ team.scored }} </td>
+                        <td> {{ team.conceded }} </td>
+                        <td><strong> {{ team.point }} </strong></td>
+                    </tr> 
                 {% endfor %}    
             </tbody>
         </table>
