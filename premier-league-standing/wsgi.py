@@ -1,5 +1,5 @@
 """
-WSGI config for middledjango project.
+WSGI config for premier-league-standing project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'middledjango.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                      'premier-league-standing.settings')
 
 application = get_wsgi_application()

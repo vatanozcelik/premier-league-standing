@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'middledjango.urls'
+ROOT_URLCONF = 'premier-league-standing.urls'
 
 TEMPLATES = [
     {
@@ -83,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'middledjango.wsgi.application'
+WSGI_APPLICATION = 'premier-league-standing.wsgi.application'
 
 
 # Database
