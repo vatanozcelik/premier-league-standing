@@ -14,7 +14,7 @@ urlpatterns = [
     path('la-liga-standing/', La_liga, name='la-liga'),
     path('league-1-standing/', League_1, name='league-1'),
     path('premier-league-standing/', premeir_league, name='premier-league'),
-    path('footballer/', team_info, name='footballer'),
+    path('footballer/<str:pk>/', team_info, name='footballer'),
     # path('fixtures/', fixtures, name='fixtures'),
 
 ]

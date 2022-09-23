@@ -10,8 +10,8 @@ from .models import League, Team, Footballer
 # Create your views here.
 
 
-def team_info(request):
-    footballers = Footballer.objects.all()
+def team_info(request, pk):
+    footballers = Footballer.objects.filter(id=pk)
     context = {
         'footballers': footballers
     }
@@ -37,7 +37,7 @@ def premeir_league(request):
     data = Team.objects.filter(league_id=1).order_by('-point', '-average')
 
     context = {
-        'teams': data
+        'teams': data,
     }
 
     return render(request, "core/premier_league.html", context)
