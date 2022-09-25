@@ -1,11 +1,4 @@
-from core.views import (
-    home,
-    # # fixtures,
-    # team_info,
-    # League_1,
-    # La_liga,
-    # premeir_league,
-)
+from core.views import home
 from django.urls import path
 from core.views import (
     # LeagueListView,
