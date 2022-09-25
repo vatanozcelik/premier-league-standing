@@ -20,14 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <!---->
                 {% for team in teams %}
-                <tr data-href="{% url 'footballer' %}" class="col">
+                <tr data-href="{% url 'team' slug=team.slug %}" class="col">
                     <td>{{ forloop.counter }}</td>
                     <td>
-                        <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" >
+                        <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" />
                     </td>
-                    <td> {{ team.name }} </td>
+                    <td> <strong> {{ team.name }} </strong> </td>
                     <td> {{ team.games }} </td>
                     <td> {{ team.win }} </td>
                     <td> {{ team.draw }} </td>
@@ -36,7 +35,7 @@
                     <td> {{ team.conceded }} </td>
                     <td><strong> {{ team.point }} </strong></td>
                 </tr> 
-                {% endfor %}    
+                {% endfor %}  
             </tbody>
         </table>
     </div>

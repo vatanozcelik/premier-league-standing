@@ -1,25 +1,16 @@
 from http.client import HTTPResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 import pandas as pd
 import json
 import requests
+from django.views.generic import (
+    # DetailView,
+    ListView,
+)
 
 
 from .models import League, Team, Footballer
-# Create your views here.
-
-
-def team_info(request, pk):
-    footballers = Footballer.objects.filter(id=pk)
-    context = {
-        'footballers': footballers
-    }
-    return render(request, "core/team.html", context)
-
-
-def home(request):
-    return render(request, "core/home.html")
 
 
 """
@@ -32,47 +23,43 @@ class Meta:
 .order_by('-point', '-average')
 """
 
+"""
+        C L A S S    B A S E D    V I E W
+"""
 
-def premeir_league(request):
-    data = Team.objects.filter(league_id=1).order_by('-point', '-average')
+# class LeagueListView(ListView):
+#     model = Team
+#     template_name = "league.html"
+#     context_object_name = "teams"
+
+#     def get_context_data(self, **kwargs):
+#         context = super(LeagueListView, self).get_context_data(**kwargs)
+#         league = get_object_or_404(League, slug=kwargs.get('slug'))
+#         context['teams'] = Team.objects.filter(league_id=league.id)
+#         return context
+
+
+def home(request):
+    return render(request, "core/home.html")
+
+
+def league_teams(request, slug):
+    league = get_object_or_404(League, slug=slug)
+    teams = Team.objects.filter(league_id=league.id)
 
     context = {
-        'teams': data,
+        'teams': teams,
+        'footballer': Footballer.objects.all(),
     }
+    return render(request, "core/league.html", context)
 
-    return render(request, "core/premier_league.html", context)
 
+def footballer_list(request, slug):
+    team = get_object_or_404(Team, slug=slug)
+    footballers = Footballer.objects.filter(team_id=team.id)
 
-def La_liga(request):
-    la_liga = Team.objects.filter(league_id=3).order_by('-point', '-average')
     context = {
-        'teams': la_liga
+
+        'footballers': footballers,
     }
-    return render(request, "core/la_liga.html", context)
-
-
-def League_1(request):
-    league_1 = Team.objects.filter(league_id=2).order_by('-point', '-average')
-    context = {
-        'teams': league_1
-    }
-    return render(request, "core/league_1.html", context)
-
-
-# def fixtures(request):
-
-#     url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
-
-#     querystring = {"date": "2021-01-29"}
-
-#     headers = {
-#         "X-RapidAPI-Key": "0d09d428a7msh8463aa6522b80e2p16954bjsn57b81c2cdff4",
-#         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
-#     }
-
-#     response = requests.request(
-#         "GET", url, headers=headers, params=querystring).json()
-
-#     print(type(response))
-
-#     return render(request, 'core/fixtures.html', {'response': response})
+    return render(request, "core/team.html", context)

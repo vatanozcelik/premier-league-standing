@@ -2,9 +2,18 @@ from django.contrib import admin
 
 from core.models import Footballer, League, Team
 
-# Register your models here.
+
+class TeamAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 'league',
+    )
+    prepopulated_fields = {"slug": ("name",)}
+
+
+class LeagueAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+
 
 admin.site.register(Footballer)
-admin.site.register(League)
-admin.site.register(Team)
-
+admin.site.register(League, LeagueAdmin)
+admin.site.register(Team, TeamAdmin)

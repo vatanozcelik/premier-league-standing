@@ -26,15 +26,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
+                    {% for league in leagues %}
                     <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'premier-league' %}">Premier League</a>
+                    <a class="nav-link" href="{% url 'league' slug=league.slug %}">{{ league.name }}</a>
                     </li>
-                    <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'la-liga' %}">La liga</a>
-                    </li>
-                    <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'league-1' %}">League 1</a>
-                    </li>
+                    {% endfor %}
+                   
                 </ul>
                 <ul class="navbar-nav ms-auto">
 

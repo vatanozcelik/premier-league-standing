@@ -1,20 +1,23 @@
 from core.views import (
     home,
-    # fixtures,
-    team_info,
-    League_1,
-    La_liga,
-    premeir_league,
+    # # fixtures,
+    # team_info,
+    # League_1,
+    # La_liga,
+    # premeir_league,
 )
 from django.urls import path
-
+from core.views import (
+    # LeagueListView,
+    league_teams,
+    footballer_list,
+)
 
 urlpatterns = [
     path('', home, name='home'),
-    path('la-liga-standing/', La_liga, name='la-liga'),
-    path('league-1-standing/', League_1, name='league-1'),
-    path('premier-league-standing/', premeir_league, name='premier-league'),
-    path('footballer/<str:pk>/', team_info, name='footballer'),
+    # path('league/<slug:slug>/', LeagueListView.as_view(), name='league'),
+    path('<slug:slug>/', league_teams, name='league'),
+    path('team/<slug:slug>/', footballer_list, name='team'),
     # path('fixtures/', fixtures, name='fixtures'),
 
 ]
