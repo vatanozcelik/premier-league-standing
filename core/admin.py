@@ -5,7 +5,11 @@ from core.models import Footballer, League, Team
 
 class TeamAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'league',
+        'name',
+        'league',
+    )
+    list_filter = (
+        'league',
     )
     prepopulated_fields = {"slug": ("name",)}
 
