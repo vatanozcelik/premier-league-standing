@@ -26,7 +26,7 @@
                     <td>
                         <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" />
                     </td>
-                    <td> <strong> {{ team.name }} </strong> </td>
+                    <td> <strong> {{ team.name|capfirst }} </strong> </td>
                     <td> {{ team.games }} </td>
                     <td> {{ team.win }} </td>
                     <td> {{ team.draw }} </td>
