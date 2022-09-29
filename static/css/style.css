@@ -1,3 +1,14 @@
+.background-image {
+    background-image: url("../../media/images/anfield.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    opacity: 1;
+}
+
 p {
     color:green;
     text-align: center;
@@ -5,14 +16,4 @@ p {
 
 tr[data-href] {
     cursor: pointer;
-}
-.background-image {
-    background-image: url("../../media/images/Arsenal.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    opacity: 1;
 }
