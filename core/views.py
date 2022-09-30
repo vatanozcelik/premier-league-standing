@@ -1,6 +1,5 @@
-from http.client import HTTPResponse
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import pandas as pd
 import json
 import requests
@@ -11,7 +10,6 @@ from django.views.generic import (
 
 
 from .models import League, Team, Footballer
-
 
 """
 to type of ordering 

@@ -4,13 +4,12 @@ from core.views import (
     # LeagueListView,
     league_teams,
     footballer_list,
+    players,
 )
 
 urlpatterns = [
     path('', home, name='home'),
-    # path('league/<slug:slug>/', LeagueListView.as_view(), name='league'),
     path('<slug:slug>/', league_teams, name='league'),
     path('team/<slug:slug>/', footballer_list, name='team'),
-    # path('fixtures/', fixtures, name='fixtures'),
 
 ]
