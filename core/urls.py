@@ -4,7 +4,7 @@ from core.views import (
     # LeagueListView,
     league_teams,
     footballer_list,
-    players,
+    # players,
 )
 
 urlpatterns = [

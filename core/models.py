@@ -51,10 +51,9 @@ class Team(models.Model):
 
 
 class Footballer(models.Model):
-    name = models.CharField(max_length=255)
-    age = models.IntegerField()
-    old_club = models.CharField(max_length=255)
+    player = models.CharField(max_length=255, blank=True, null=True)
+    position = models.CharField(max_length=255, blank=True, null=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.player
