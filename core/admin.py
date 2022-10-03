@@ -4,6 +4,9 @@ from core.models import Footballer, League, Team
 
 
 class TeamAdmin(admin.ModelAdmin):
+    search_fields = (
+        'name',
+    )
     list_display = (
         'name',
         'league',

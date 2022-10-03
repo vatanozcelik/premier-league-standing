@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import permission_required
+from django.contrib import messages
+import io
+import csv
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, JsonResponse
 import pandas as pd
 import json
-import requests
 from django.views.generic import (
     # DetailView,
     ListView,
@@ -61,3 +63,47 @@ def footballer_list(request, slug):
         'footballers': footballers,
     }
     return render(request, "core/team.html", context)
+
+
+@permission_required('admin.can_add_log_entry')
+def upload_csv(request):
+
+    template = "core/upload_csv.html"
+
+    prompt = {
+        'order': 'order should player position and team'
+    }
+    if request.method == 'GET':
+        return render(request, template, prompt)
+
+    csv_file = request.FILES['file']
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request, 'this is not csv file')
+
+    data_set = csv_file.read().decode('utf-8')
+    io_string = io.StringIO(data_set)
+    next(io_string)  # most csv file has header
+
+    Footballer.objects.all().delete()
+    League.objects.all().delete()
+    Team.objects.all().delete()
+
+    for col in csv.reader(io_string, delimiter=';', quotechar='|'):
+
+        league, _ = League.objects.get_or_create(name=col[5])
+
+        team, _ = Team.objects.get_or_create(
+            name=col[4],
+            league=league
+        )
+
+        footballer = Footballer(
+            player=col[1],
+            position=col[3],
+            team=team
+        )
+        footballer.save()
+
+    context = {}
+
+    return render(request, template, context)

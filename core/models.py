@@ -12,7 +12,7 @@ class League(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        super(Song, self).save(*args, **kwargs)
+        super(League, self).save(*args, **kwargs)
 
 
 class Team(models.Model):
