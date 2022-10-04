@@ -57,3 +57,8 @@ class Footballer(models.Model):
 
     def __str__(self):
         return self.player
+
+    class Meta:
+        ordering = (
+            'position',
+        )

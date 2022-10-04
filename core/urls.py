@@ -12,5 +12,4 @@ urlpatterns = [
     path('', home, name='home'),
     path('<slug:slug>/', league_teams, name='league'),
     path('team/<slug:slug>/', footballer_list, name='team'),
-    path('upload_csv/', upload_csv, name='upload')
 ]
