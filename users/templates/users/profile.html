@@ -1,10 +1,23 @@
 {% extends 'core/base.html' %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 
-<h1>{{ user.username }}</h1>
-    
+<div class="wrapper">
+    <div class="profile">
+        <div class="overlay">
+            <div class="about d-flex flex-column">
+                <h4>{{ user.username }}</h4> <span> {{user.email}} </span>
+            </div>
+            <ul class="social-icons">
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li><i class="fab fa-linkedin"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
     
