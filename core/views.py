@@ -43,13 +43,38 @@ def home(request):
     return render(request, "core/home.html")
 
 
+class LeagueListView(ListView):
+    model = Team
+    template_name = 'core/league.html'
+    context_object_name = 'teams'
+    paginate_by = 10
+
+    def get_queryset(self):
+        league = get_object_or_404(League, slug=self.kwargs['slug'])
+        return Team.objects.filter(league_id=league.id)
+
+
+class TeamListView(ListView):
+    model = Footballer
+    template_name = 'core/team.html'
+    context_object_name = 'footballers'
+    paginate_by = 10
+
+    def get_queryset(self):
+        team = get_object_or_404(Team, slug=self.kwargs['slug'])
+        return Footballer.objects.filter(team_id=team.id)
+
+
+#  f u n c t i o n   b a s e d  v i e w
+
+"""
+
 def league_teams(request, slug):
     league = get_object_or_404(League, slug=slug)
     teams = Team.objects.filter(league_id=league.id)
 
     context = {
         'teams': teams,
-        'footballer': Footballer.objects.all(),
     }
     return render(request, "core/league.html", context)
 
@@ -63,6 +88,7 @@ def footballer_list(request, slug):
         'footballers': footballers,
     }
     return render(request, "core/team.html", context)
+"""
 
 
 @permission_required('admin.can_add_log_entry')

@@ -8,8 +8,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-$(document).ready(function(){
-    $('table tr').on('hover', function(){
-        $(this).hide(300);
-    })
-})
