@@ -22,7 +22,7 @@
             <tbody>
                 {% for team in teams %}
                 <tr data-href="{% url 'team' slug=team.slug %}" class="col">
-                    <td>{{ forloop.counter }}</td>
+                    <td>{{ page_obj.start_index|add:forloop.counter0 }}</td>
                     <td>
                         <img class='img-responsive' src="{{ team.image.url }}" height="40" width="40" />
                     </td>
