@@ -15,7 +15,7 @@
             <tbody>
                 {% for footballer in footballers %}
                 <tr  class="col">
-                    <td>{{ forloop.counter }}</td>
+                    <td>{{ page_obj.start_index|add:forloop.counter0 }}</td>
                     <td> <strong>{{ footballer.player }}</strong> </td>
                     <td> {{ footballer.position }} </td>
                     <td> {{ footballer.team }} </td>
